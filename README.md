@@ -28,6 +28,14 @@ In your `application.css`, include the css file:
  *= require letters
  */
 ```
+
+###inbox link
+In your `*html*`, include the helper link:
+
+```*html*
+<%= inbox_link if Rails.env.development? %>
+```
+
 Then restart your webserver if it was previously running.
 
 

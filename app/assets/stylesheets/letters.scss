@@ -7,3 +7,12 @@
   color: red;
   text-decoration: none;
 }
+
+.letter-link {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  .letter-icon {
+    width: 25px;
+  }
+}
