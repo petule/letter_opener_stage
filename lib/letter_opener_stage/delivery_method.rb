@@ -1,5 +1,4 @@
 require "digest/sha1"
-require "launchy"
 
 module LetterOpenerStage
   class DeliveryMethod
@@ -22,6 +21,7 @@ module LetterOpenerStage
 
       messages = Message.rendered_messages(mail, location: location, message_template: settings[:message_template])
       begin
+        require "launchy"
         Launchy.open("file:///#{messages.first.filepath}")
       rescue
         Rails.logger.debug "Cannot open browser for view email. Please see #{letter_opener_letters_path}"
