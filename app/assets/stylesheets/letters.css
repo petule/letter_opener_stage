@@ -12,7 +12,8 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  .letter-icon {
-    width: 25px;
-  }
+}
+
+.letter-link .letter-icon {
+  width: 25px;
 }

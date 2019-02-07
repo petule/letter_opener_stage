@@ -21,13 +21,6 @@ Then set the delivery method in <tt>config/environments/development.rb</tt>
 
 ## Usage
 
-In your `application.css`, include the css file:
-
-```css
-/*
- *= require letters
- */
-```
 
 ###inbox link
 In your `*html*`, include the helper link:
