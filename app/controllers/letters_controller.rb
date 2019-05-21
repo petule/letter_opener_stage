@@ -5,7 +5,7 @@ class LettersController < ApplicationController
 
   def show
     @letter = Letter.find_by_name(params[:id])
-    render text: @letter.contents(params[:style])
+    render file: @letter.filepath(params[:style]), layout: false
   end
 
   def delete
