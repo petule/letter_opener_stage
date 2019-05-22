@@ -7,6 +7,8 @@ module LetterOpenerStage
       @message_template = 'default'
       if defined?(LETTER_OPENER_STAGE_OPTIONS) && LETTER_OPENER_STAGE_OPTIONS.key?(:skip_actions)
         @skip_actions = LETTER_OPENER_STAGE_OPTIONS[:skip_actions]
+      else
+        default_options
       end
     end
 
