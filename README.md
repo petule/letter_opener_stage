@@ -45,7 +45,9 @@ Then restart your webserver if it was previously running.
   end
   if you want skip some action (e.g. for devise): to config/environments/development.rb
   ```ruby
-    SKIP_ACTIONS = [:authenticate_person!, :permitted?]
+    LETTER_OPENER_STAGE_OPTIONS = {
+      skip_actions: [:authenticate_person!, :permitted?]
+    }
   ```
   
 
