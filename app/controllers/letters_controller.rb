@@ -1,5 +1,5 @@
 class LettersController < ApplicationController
-  skip_actions.each do |action|
+  LetterOpenerStage.configuration.skip_actions.each do |action|
     skip_before_action action
   end
 
@@ -15,11 +15,5 @@ class LettersController < ApplicationController
   def delete
     FileUtils.rm_rf("#{LetterOpenerStage.letters_location}/#{params[:id]}")
     redirect_to(letter_opener_letters_path, notice: 'The mail was deleted.')
-  end
-
-  private
-
-  def skip_actions
-    @skip_actions ||= LetterOpenerStage.configuration.skip_actions
   end
 end
