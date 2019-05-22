@@ -1,4 +1,8 @@
 class LettersController < ApplicationController
+  SKIP_ACTIONS.each do |action|
+    skip_before_action action
+  end if defined?(SKIP_ACTIONS)
+
   def index
     @letters = Letter.all
   end

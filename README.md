@@ -43,6 +43,11 @@ Then restart your webserver if it was previously running.
     # Default value is <tt>:default</tt> that renders styled message with showing useful metadata.
     config.message_template = :light
   end
+  if you want skip some action (e.g. for devise): to config/environments/development.rb
+  ```ruby
+    SKIP_ACTIONS = [:authenticate_person!, :permitted?]
+  ```
+  
 
 
 ## Development
