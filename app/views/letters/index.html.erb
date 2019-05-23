@@ -1,12 +1,18 @@
-<h1>Inbox:</h1>
+<h1>
+  <% if params[:type] == 'message' %>
+    Inbox:
+  <% else %>
+    Sms:
+  <% end %>
+</h1>
 
 <ul class="letters">
   <% @letters.each do |letter| %>
     <li class="letter">
-      <%= link_to 'x', delete_letter_opener_letter_path(letter.name), method: :delete,
+      <%= link_to 'x', delete_letter_opener_letter_path(letter.name, type: letter.type), method: :delete,
                   data: { confirm: 'Do you really want to delete this email?' }, class: 'letter-delete' %>
       <%= link_to "#{letter.updated_at} - #{letter.name}",
-                  letter_opener_letter_path(letter.name, style: letter.default_style)
+                  letter_opener_letter_path(letter.name, style: letter.default_style(letter.type), type: letter.type)
       %>
     </li>
   <% end %>

@@ -2,6 +2,7 @@ require "letter_opener_stage/engine"
 
 module LetterOpenerStage
   autoload :Message, "letter_opener_stage/message"
+  autoload :Sms, "letter_opener_stage/sms"
   autoload :DeliveryMethod, "letter_opener_stage/delivery_method"
   autoload :Configuration, "letter_opener_stage/configuration"
 
@@ -13,8 +14,12 @@ module LetterOpenerStage
     yield(configuration)
   end
 
-  def self.letters_location
-    Rails.root.join("tmp", "letter_opener_stage")
+  def self.letters_message_location
+    LetterOpenerStage.configuration.location
+  end
+
+  def self.letters_sms_location
+    LetterOpenerStage.configuration.sms_location
   end
 
   def self.on_file_system

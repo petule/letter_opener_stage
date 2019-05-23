@@ -4,16 +4,16 @@ class LettersController < ApplicationController
   end
 
   def index
-    @letters = Letter.all
+    @letters = Letter.by_type(params[:type])
   end
 
   def show
     @letter = Letter.find_by_name(params[:id])
-    render file: @letter.filepath(params[:style]), layout: false
+    render file: @letter.filepath(params[:type], params[:style]), layout: false
   end
 
   def delete
-    FileUtils.rm_rf("#{LetterOpenerStage.letters_location}/#{params[:id]}")
-    redirect_to(letter_opener_letters_path, notice: 'The mail was deleted.')
+    FileUtils.rm_rf("#{LetterOpenerStage.send("letters_#{params[:type]}_location")}/#{params[:id]}")
+    redirect_to(letter_opener_letters_path(type: params[:type] ), notice: "The #{params[:type]} was deleted.")
   end
 end
